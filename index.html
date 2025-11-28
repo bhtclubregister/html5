@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Reward Galaxy Mix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google ADX GPT -->
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script>
+        window.googletag = window.googletag || { cmd: [] };
+
+        googletag.cmd.push(function () {
+
+            const rewardedSlot = googletag.defineOutOfPageSlot(
+                '/23315330471/html5',
+                googletag.enums.OutOfPageFormat.REWARDED
+            ).addService(googletag.pubads());
+
+            googletag.pubads().addEventListener("rewardedSlotGranted", function () {
+                console.log("Reward Added!");
+                window.rewardUser();
+            });
+
+            googletag.enableServices();
+
+            window.showRewardAd = function () {
+                rewardedSlot && rewardedSlot.show();
+            };
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="header">
+        <img src="assets/logo.png" class="logo">
+        <h2>Reward Galaxy Mix</h2>
+    </div>
+
+    <div class="game-container">
+        <iframe id="gameframe" src="game/yourgame.html"></iframe>
+    </div>
+
+    <div class="rewardBox">
+        <button class="rewardBtn" onclick="showRewardAd()">Get Reward 🎁</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
 
